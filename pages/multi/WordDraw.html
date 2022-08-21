@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<head>
+    <title>WordDraw</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/styles/WordDraw.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="countDownBackground">
+        <div id="centerDiv">
+            <p>WordDraw</p>
+            <div class="lds-ripple"><div></div><div></div></div><br>
+            <button type="button" class="btn btn-primary" id="liveAlertBtn" style="background-color: #51e2f5;">
+                <span class="badge text-bg-secondary">!</span> Speed is key
+            </button>
+            <h5><span class="badge rounded-pill text-bg-light">Playing as <span class="badge text-bg-warning" id="showUsername"></span></span></h5>
+        </div>
+        <div id="pairingDiv">
+            Pairing
+            &nbsp;
+            <div class="spinner-grow spinner-grow-sm" role="status">
+            </div>
+        </div>
+    </div>
+    <div id="gameDiv" style="display:none">
+        <div id="youDiv">
+            <div class="playerContent" id="youContent">
+                <img id="youPic" class="profilePic" src="/assets/images/brain.webp"/>
+                <span class="badge text-bg-warning usernameLabel" id="youUsername"></span>
+                <input id="youInput" type="text" placeholder="Type here" class="wordInput" autocomplete="off" maxlength="30"/>
+                <div id="youUnderline"></div>
+            </div>
+        </div>
+        <div id="opponentDiv">
+            <span class="badge rounded-pill text-bg-light" id="wordCount">Word count</span>
+            <div class="playerContent" id="opponentContent">
+                <img id="opponentPic" class="profilePic" src="/assets/images/devil.png"/>
+                <div class="lds-ellipsis" style="position: absolute; left: 50%; transform: translateX(-50%); top: 10px;"><div></div><div></div><div></div><div></div></div>
+                <span class="badge text-bg-warning usernameLabel" id="opponentUsername"></span>
+            </div>
+        </div>
+        <div id="prompt"></div>
+        <button type="button" class="btn btn-primary" style="position: absolute; bottom: 10px; right: 10px; background-color:#CBC3E3;">
+            First player to <span class="badge text-bg-secondary">10</span>
+        </button>
+        <div id="score">
+            <button type="button" class="btn btn-primary" id="youScore">
+                Your Score <span class="badge text-bg-secondary" id="yourScore">0</span>
+            </button>
+            <button type="button" class="btn btn-primary" id="opponentScore">
+                Opponent Score <span class="badge text-bg-secondary" id="opponentsScore">0</span>
+            </button>
+        </div>
+    </div>
+    <div id="gameOverBackground">
+        <div id="centerContent">
+            <h1 id="WinOrLose" style="color: white"></h1>
+            <button type="button" class="btn btn-primary">
+                Words <span class="badge text-bg-secondary" id="wordCnt"></span>
+            </button>
+            <button type="button" class="btn btn-primary">
+                Characters <span class="badge text-bg-secondary" id="charCnt"></span>
+            </button>
+            <button type="button" class="btn btn-primary">
+                Duration <span class="badge text-bg-secondary" id="duration"></span>
+            </button>
+        </div>
+    </div>
+    <script src="/scripts/games/WordDraw.js"></script>
+</body>
+</html>

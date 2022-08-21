@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<head>
+    <title>Rapid Recall</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/styles/RapidRecall.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="countDownBackground">
+        <div id="centerDiv">
+            <p>Rapid Recall</p>
+            <div class="lds-ripple"><div></div><div></div></div><br>
+            <button type="button" class="btn btn-primary" id="liveAlertBtn" style="background-color: #51e2f5;">
+                <span class="badge text-bg-secondary">!</span> How quickly can you think of words?
+            </button>
+        </div>
+    </div>
+    <div id="gameContent">
+        <p id="gamePrompt">
+            Some Random Prompt
+        </p>
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div><br>
+        <p id="optionsCount">54532 words</p>
+        <input id="userWord" type="input" placeholder="Type here" spellcheck="false" maxlength="32" oninput="this.value = this.value.toUpperCase()" autocomplete="off">
+        <div id="verdictUnderline"></div>
+        <p><a id="lives">3</a><a style="color:red; font-size: 25px;">♥</a>&nbsp&nbsp&nbsp<a id='timeLeft'>0:19</a></p>
+        <button type="button" class="btn btn-primary" style="margin-top: 45px;">
+            <span class="badge text-bg-secondary" style="background-color: blue">Extra Life</span> <a id="extraLifePrompt">Some random directions that the user will do</a>
+        </button>
+    </div>
+    <div id="gameOverBackground">
+        <div id="centerContent">
+            <h1 style="margin-top: 20px;">Score</h1>
+            <h1><span id="roundScore" class="badge rounded-pill text-bg-dark">0</span></h1>
+            <br>
+            <p style="margin-left: 30px; margin-right: 30px;">Well played! You found <a id='wordCount'>0</a> words, with your longest word being <span id="longestWord" class="badge text-bg-success">Success</span>.</p>
+            <a href="/RapidRecall"><input type="button" class='roundedButton' value="Play Again"/></a>
+            <a href="/"><input type="button" class='roundedButton' value="Home"/></a>
+        </div>
+    </div>
+    <audio id="correctBeep" src="/assets/sounds/correct-beep-2_C_major.wav" preload="auto"></audio>
+    <audio id="gameCloseSound" src="/assets/sounds/end-level-beep_C_major.wav" preload="auto"></audio>
+    <script src="/scripts/games/RapidRecall.js"></script>
+</body>
+</html>

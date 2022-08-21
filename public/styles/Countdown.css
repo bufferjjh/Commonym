@@ -1,0 +1,446 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #f5f5f5;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #f5f5f5;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #f5f5f5;
+}
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+  min-width:850px;
+}
+.lds-grid {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-grid div {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    animation: lds-grid 1.2s linear infinite;
+  }
+  .lds-grid div:nth-child(1) {
+    top: 8px;
+    left: 8px;
+    animation-delay: 0s;
+  }
+  .lds-grid div:nth-child(2) {
+    top: 8px;
+    left: 32px;
+    animation-delay: -0.4s;
+  }
+  .lds-grid div:nth-child(3) {
+    top: 8px;
+    left: 56px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(4) {
+    top: 32px;
+    left: 8px;
+    animation-delay: -0.4s;
+  }
+  .lds-grid div:nth-child(5) {
+    top: 32px;
+    left: 32px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(6) {
+    top: 32px;
+    left: 56px;
+    animation-delay: -1.2s;
+  }
+  .lds-grid div:nth-child(7) {
+    top: 56px;
+    left: 8px;
+    animation-delay: -0.8s;
+  }
+  .lds-grid div:nth-child(8) {
+    top: 56px;
+    left: 32px;
+    animation-delay: -1.2s;
+  }
+  .lds-grid div:nth-child(9) {
+    top: 56px;
+    left: 56px;
+    animation-delay: -1.6s;
+  }
+  @keyframes lds-grid {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+.dots-cont {
+    position: absolute;
+ }
+ .dot {
+    width: 12px;
+    height: 12px;
+    background: #22303e;
+    display: inline-block;
+    border-radius: 50%;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px 2.5px;
+    position: relative;
+    animation: jump 1s infinite;
+ }
+ .dots-cont:hover > .dot {
+    /* position: relative; */
+    /* bottom: 0px; */
+    animation: none;
+ }
+ .dots-cont .dot-1 {
+    -webkit-animation-delay: 100ms;
+    animation-delay: 100ms;
+ }
+ .dots-cont .dot-2 {
+    -webkit-animation-delay: 200ms;
+    animation-delay: 200ms;
+ }
+ .dots-cont .dot-3 {
+    -webkit-animation-delay: 300ms;
+    animation-delay: 300ms;
+ }
+ @keyframes jump {
+    0%   {bottom: 0px;}
+    20%  {bottom: 5px;}
+    40%  {bottom: 0px;}
+ }
+
+
+#countDownBackground {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #4e54c8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-family: 'Roboto', sans-serif;
+}
+#centerDiv {
+    position: absolute;
+    max-width: 500px;
+    max-height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+#pairingDiv {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  width: 160px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: green;
+}
+#YouSide {
+  position: absolute;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  min-width: 50%;
+  background-color:#5585b5;
+}
+#OpponentSide {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  top: 0px;
+  min-width: 50%;
+  background-color:#53a8b6;
+}
+#initialCountdown {
+  position: absolute;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 140px;
+  height: 140px;
+  background-color: #bbe4e9;;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#YouSideContent {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+#OpponentSideContent {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.usedLetters {
+  position: absolute;
+  bottom: 30px;
+  transform: translateX(-50%);
+  background-color: #00203FFF;
+  left:50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px;
+  grid-template-rows: 30px 30px;
+  padding: 15px;
+  gap:3px;
+  border-radius: 15px;
+}
+.useLetterYou {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color:#90EE90;
+  box-shadow: 0px 0px 10px#90EE90;
+}
+.useLetterOpponent {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color:#FF7276;
+  box-shadow: 0px 0px 10px #FF7276;
+}
+.turnedOffLetter {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color:gray;
+  box-shadow: none;
+}
+@media only screen and (max-width: 950px) {
+  .usedLetters {
+    grid-template-columns: 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+    grid-template-rows: 25px 25px;
+    gap: 3px;
+  }
+  .useLetterYou {
+    width: 25px;
+    height: 25px;
+    box-shadow: 0px 0px 5px#90EE90;
+  }
+  .useLetterOpponent {
+    width: 25px;
+    height: 25px;
+    box-shadow: 0px 0px 5px #FF7276;
+  }
+}
+#YouProfilePicture {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 4px solid #90EE90;
+  width: 90px;
+  height: 90px;
+}
+#yourName {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  top: 110px;
+}
+#youInput {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  top: 170px;
+  text-align: center;
+  background-color: transparent;
+  border:none;
+  outline:none;
+  font-size: 30px;
+  color: #f5f5f5;
+}
+#verdictUnderline {
+  position: absolute;
+  width: 0px;
+  height: 5px;
+  background-color: black;
+  left:50%;
+  transform: translateX(-50%);
+  top: 225px;
+}
+#OpponentProfilePicture {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 4px solid #ff1a1a;
+  width: 90px;
+  height: 90px;
+}
+#opponentName {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  top: 110px;
+}
+#opponentInput {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  top: 170px;
+  text-align: center;
+  background-color: transparent;
+  border:none;
+  outline:none;
+  font-size: 30px;
+  color: #f5f5f5;
+}
+#verdictUnderlineOpponent {
+  position: absolute;
+  width: 0px;
+  height: 5px;
+  background-color: black;
+  left:50%;
+  transform: translateX(-50%);
+  top: 225px;
+}
+#promptDisplay {
+  position: absolute;
+  background-color: white;
+  width: 270px;
+  height: 80px;
+  left:50%;
+  transform: translateX(-50%);
+  bottom: 160px;
+  border-radius: 10px;
+  border: 3px solid orange;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+#arrowDisplay {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  left:50%;
+  top: 45%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  font-weight: bold;
+  visibility: hidden;
+}
+.arrowPic {
+  width: 30px;
+  height: 30px;
+  transform: rotate(180deg);
+}
+.right {
+  transform: rotate(0deg);
+}
+.top {
+  transform: rotate(90deg);
+}
+.pulse {
+  animation: pulse-animation 0.5s;
+  animation-iteration-count: 1;
+}
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 40px rgba(0, 0, 0, 0);
+  }
+}
+.letterWrapper {
+  color: white;
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+.timer {
+  position: absolute;
+  top: 230px;
+  left:50%;
+  transform: translateX(-50%);
+  color: white;
+}
+#gameOverBackground {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0%;
+  background-color: #4e54c8;
+}
+#centerContent {
+  position: absolute;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 10px;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
+  text-align: center;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<head>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <title>Commonym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+    <div class="modal fade" id="usernameChange" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change username</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" placeholder="Change username to" id="changeUsernameInput" autofocus="autofocus"/>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="changeUsername()" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="area" >
+        <ul class="circles">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+            <li>F</li>
+            <li>G</li>
+            <li>H</li>
+            <li>I</li>
+            <li>J</li>
+            <li>K</li>
+            <li>L</li>
+            <li>M</li>
+          </ul>
+          <div id="mainContent">
+            <h1 style="color: white; letter-spacing: 3px; margin-bottom: 30px;">COMMONYM</h1>
+            <button type="button" class="btn btn-primary" style="background-color: #51e2f5">
+                Online <span class="badge text-bg-secondary" id="usersOnline"></span>
+            </button>
+            <button type="button" class="btn btn-primary" style="background-color: #51e2f5">
+                Words Found <span class="badge text-bg-secondary" id="wordsFound">4.38e9</span>
+            </button>
+            <button type="button" class="btn btn-primary" style="background-color: #51e2f5">
+                Games Played <span class="badge text-bg-secondary" id="gamesPlayed">7.62e5</span>
+            </button>
+            <br>
+            <input id="customGameCodeInput" type="text" placeholder="Enter a private game with code" onkeydown="search(this)"/>
+            <br>
+            <button type="button" class="btn btn-primary" id="playingAs" data-bs-toggle="modal" data-bs-target="#usernameChange">
+                Playing as <span class="badge text-bg-secondary" id="username">Guest739</span>
+            </button>
+          </div>
+    </div>
+
+    <div id="gameCards" style="padding-top: 50px; padding-bottom: 50px;">
+        <div class="card" style="width: 18rem; margin: 20px;">
+            <img src="/assets/images/RapidRecall.PNG" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Rapid Recall</h5>
+            <p class="card-text">How fast can you recall your words? You will have to quickly come up with words that either contain a substring, include some letters, or can be arranged out of some collection of letters. Beware of the timer!</p>
+            <p id="RapidRecallPlaying">• 176 playing</p>
+            <a href="/RapidRecall" class="btn btn-primary">Play</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 20px;">
+            <img src="/assets/images/Countdown.PNG" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Countdown</h5>
+            <p class="card-text">The first player to use all 26 letters of the alphabet wins. Your word needs to start with the last letter of your opponent's word. A deciding prompt is given at the start of the round to determine who goes first, which is a big advantage.</p>
+            <p id="CountdownPlaying">• 112 playing</p>
+            <a href="/Countdown" class="btn btn-primary">Play</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem; margin: 20px;">
+            <img src="/assets/images/WordDraw.PNG" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Word Draw</h5>
+            <p class="card-text">Who can come up with words faster? You'll be asked some prompts throughout the round. The player that first enters a word satisfying the prompt will get the point. First to ten points wins. Word length doesn't matter.</p>
+            <p id="WordDrawPlaying">• 134 playing</p>
+            <a href="/WordDraw" class="btn btn-primary">Play</a>
+            </div>
+        </div>
+    </div>
+      
+    <div class="dropup-center dropup" id="privateGameSelector">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Private Game
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" onclick="createCountdown()" style="cursor:pointer;">Countdown</a></li>
+          <li><a class="dropdown-item" onclick="createWordDraw()" style="cursor:pointer;">WordDraw</a></li>
+        </ul>
+    </div>
+
+    <script src="/scripts/index.js"></script>
+</body>
+</html>
