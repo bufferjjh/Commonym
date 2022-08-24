@@ -30,13 +30,20 @@ import pickle
 pickle_off = open ("include4.txt", "rb")
 emp = pickle.load(pickle_off)
 
-k = list(emp.keys())
-k.sort(key=lambda x: emp[x])
+k = []
+alpha = "abcdefghijklmnopqrstuvwxyz"
+for a in range(26):
+    for b in range(a+1, 26):
+        for c in range(b+1, 26):
+            for d in range(c+1, 26):
+                s = alpha[a]+alpha[b]+alpha[c]+alpha[d]
+                if(s not in emp.keys()):
+                    continue
+                k.append([s, emp[s]])
+k = [i for i in k if i[1] > 3000]
+k.sort(key = lambda x: x[1])
 k.reverse()
 
-obj = []
-for i in range(5000):
-    obj.append([k[i],emp[k[i]]])
 import json
 w = open("fourInclude.json","w")
-w.write(json.dumps(obj))
+w.write(json.dumps(k))

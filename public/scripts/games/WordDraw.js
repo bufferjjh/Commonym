@@ -241,13 +241,11 @@ function displayStats() {
 }
 
 socket.on("WordDraw:YouWon", () => {
-    socket.disconnect();
     gameOverScreen(true);
     displayStats();
 });
 
 socket.on("WordDraw:YouLost", () => {
-    socket.disconnect();
     gameOverScreen(false);
     displayStats();
 });

@@ -11,8 +11,12 @@ function getPrompt(Datasets) {
     let fourInclude = Datasets['fourInclude'];
     let template1 = Datasets["template1"];
     let template2 = Datasets["template2"];
-    let mode = 0;
+    let mode = 1;
     //limit to twoInclude and threeInclude for now
+    let random = Math.floor(Math.random() * 10);
+    if(random <= 1) {
+        mode = 0;
+    }
     let sets = [threeInclude, fourInclude, template1,template2];
     return [mode, selectRandom(sets[mode])];
 }

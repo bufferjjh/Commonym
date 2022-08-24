@@ -62,7 +62,7 @@ socket.on("InvalidCode", () => {
 })
 socket.on("Countdown:OpponentDisconnected", () => {
     if(gameOver) return;
-    //socket.disconnect();
+    socket.disconnect();
     clearInterval(youTimer);
     clearGame();
     gameOverScreen(true);
