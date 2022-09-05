@@ -50,7 +50,7 @@ app.get('/getUsersOnline', function(req,res) {
                 RapidRecall: Object.keys(Games.RapidRecall).length,
                 Countdown: Object.keys(Games.Countdown).length-3,
                 WordDraw: Object.keys(Games.WordDraw).length-3,
-                totalUsers: Object.keys(GameUsers).length,
+                totalUsers: io.engine.clientsCount,
                 GameCount: reply1,
                 WordCount: reply2,
             })

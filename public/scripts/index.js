@@ -1,3 +1,5 @@
+const socket = io();
+
 if("Commonym:Username" in localStorage) {
     document.getElementById("username").innerHTML = localStorage.getItem("Commonym:Username");
 }
@@ -16,9 +18,11 @@ function changeUsername() {
 fetch('/getUsersOnline')
     .then((r) => r.json())
     .then(data => {
+        /*
         document.getElementById("RapidRecallPlaying").innerHTML = "<a style='color: #00c04b'>⦿</a> " + Math.max(0,data.RapidRecall) + " playing";
         document.getElementById("CountdownPlaying").innerHTML = "<a style='color: #00c04b'>⦿</a> " + Math.max(0,data.Countdown) + " playing";
         document.getElementById("WordDrawPlaying").innerHTML = "<a style='color: #00c04b'>⦿</a> " + Math.max(0,data.WordDraw) + " playing";
+        */
         document.getElementById("usersOnline").innerHTML = data.totalUsers;
         document.getElementById("wordsFound").innerHTML = data.WordCount;
         document.getElementById("gamesPlayed").innerHTML = data.GameCount;

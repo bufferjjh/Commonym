@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <head>
     <link rel="stylesheet" href="/styles/index.css">
+    <script src="/socket.io/socket.io.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
@@ -70,8 +71,10 @@
             <div class="card-body">
             <h5 class="card-title">Rapid Recall <span class="badge text-bg-dark">Single</span></h5>
             <p class="card-text">How fast can you recall your words? You will have to quickly come up with words that either contain a substring, include some letters, or can be arranged out of some collection of letters. Beware of the timer!</p>
-            <p id="RapidRecallPlaying">• 176 playing</p>
-            <a href="/RapidRecall" class="btn btn-primary">Play</a>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/RapidRecall'">Play</button>
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#RapidRecallModal">Demo</button>
+            </div>
             </div>
         </div>
         <div class="card" style="width: 18rem; margin: 20px;">
@@ -79,8 +82,10 @@
             <div class="card-body">
             <h5 class="card-title">Countdown</h5>
             <p class="card-text">The first player to use all 26 letters of the alphabet wins. <a style="text-decoration: underline">Your word needs to start with the last letter of your opponent's word.</a> A deciding prompt is given at the start of the round to determine who goes first, which is a big advantage.</p>
-            <p id="CountdownPlaying">• 112 playing</p>
-            <a href="/Countdown" class="btn btn-primary">Play</a>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/Countdown'">Play</button>
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#CountdownModal">Demo</button>
+            </div>
             </div>
         </div>
         <div class="card" style="width: 18rem; margin: 20px;">
@@ -88,8 +93,10 @@
             <div class="card-body">
             <h5 class="card-title">Word Draw</h5>
             <p class="card-text">Who can come up with words faster? You'll be asked some prompts throughout the round. The player that first enters a word satisfying the prompt will get the point. First to ten points wins. Word length doesn't matter.</p>
-            <p id="WordDrawPlaying">• 134 playing</p>
-            <a href="/WordDraw" class="btn btn-primary">Play</a>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/WordDraw'">Play</button>
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#WordDrawModal">Demo</button>
+            </div>
             </div>
         </div>
     </div>
@@ -102,6 +109,55 @@
           <li><a class="dropdown-item" onclick="createCountdown()" style="cursor:pointer;">Countdown</a></li>
           <li><a class="dropdown-item" onclick="createWordDraw()" style="cursor:pointer;">WordDraw</a></li>
         </ul>
+    </div>
+
+    <div class="modal fade" id="RapidRecallModal" tabindex="-1" aria-labelledby="RapidRecallModal aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">How to play Rapid Recall</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/assets/images/RapidRecall.gif" style="width: 635px; height: 296px; border: 2px solid black; border-radius: 15px; left: 100px;"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="CountdownModal" tabindex="-1" aria-labelledby="RapidRecallModal aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">How to play Rapid Recall</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/assets/images/Countdown.gif" style="width: 635px; height: 296px; border: 2px solid black; border-radius: 15px; left: 100px;"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="WordDrawModal" tabindex="-1" aria-labelledby="RapidRecallModal aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">How to play Rapid Recall</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="/assets/images/WordDraw.gif" style="width: 635px; height: 296px; border: 2px solid black; border-radius: 15px; left: 100px;"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="/scripts/index.js"></script>
