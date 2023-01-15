@@ -118,12 +118,15 @@ const Games = {
 };
 
 const onConnection = (socket) => {
-
-    DisconnectHandler(io,socket,GameUsers, Games, client);
-    RapidRecallHandler(io, socket, WordChecker, Datasets, GameUsers, Games.RapidRecall,SpecificWords, client);
-    CountdownHandler(io,socket,WordChecker, GameUsers, Games.Countdown, client);
-    WordDrawHandler(io, socket, WordChecker, GameUsers, Games.WordDraw, Datasets, client);
-
+    try {
+        DisconnectHandler(io,socket,GameUsers, Games, client);
+        RapidRecallHandler(io, socket, WordChecker, Datasets, GameUsers, Games.RapidRecall,SpecificWords, client);
+        CountdownHandler(io,socket,WordChecker, GameUsers, Games.Countdown, client);
+        WordDrawHandler(io, socket, WordChecker, GameUsers, Games.WordDraw, Datasets, client);
+    }
+    catch(err) {
+        console.log("An Error Occured: " + err.message);
+    }
 }
 
 io.on('connection', onConnection);
