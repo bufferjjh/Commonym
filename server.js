@@ -118,10 +118,12 @@ const Games = {
 };
 
 const onConnection = (socket) => {
+
     DisconnectHandler(io,socket,GameUsers, Games, client);
     RapidRecallHandler(io, socket, WordChecker, Datasets, GameUsers, Games.RapidRecall,SpecificWords, client);
     CountdownHandler(io,socket,WordChecker, GameUsers, Games.Countdown, client);
     WordDrawHandler(io, socket, WordChecker, GameUsers, Games.WordDraw, Datasets, client);
+
 }
 
 io.on('connection', onConnection);
