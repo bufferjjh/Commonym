@@ -91,7 +91,8 @@ module.exports = (io, socket, WordChecker, Datasets, GameUsers, Game, SpecificWo
     });
     socket.on("RapidRecall:GetPrompt", () => {
         let randomNum = Math.floor(Math.random() * 10); //[0,9]
-        if(randomNum == 9) {
+        //no perms for now
+        if(randomNum == 10) {
             //perms
             let randomIdx = Math.floor(Math.random() * Datasets['perms'].length);
             let generatedPerm = selectRandom(Datasets['perms'][randomIdx][1]);
