@@ -12,7 +12,7 @@ function readWords(path) {
     }
 }
 function isWord(word) {
-    return words.has(word.toLowerCase());
+    return word.length >= 3 && words.has(word.toLowerCase());
 }
 
 module.exports = {

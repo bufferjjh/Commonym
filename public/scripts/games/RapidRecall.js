@@ -8,12 +8,11 @@ let userWordObj = document.getElementById("userWord");
 let correctBeep = document.getElementById("correctBeep");
 let gameCloseSound = document.getElementById("gameCloseSound");
 
-userWordObj.addEventListener("load", () => {
+
+document.addEventListener("click", () => {
     userWordObj.focus();
 });
-document.addEventListener("click", () => {
-    document.getElementById("userWord").focus();
-});
+
 $('#countDownBackground').delay(3000).fadeOut(function() {
     $(this).remove();
     $('#gameContent').css({"display": "inline"})
@@ -22,6 +21,7 @@ $('#countDownBackground').delay(3000).fadeOut(function() {
     setInterval(() => {
         checkTime();
     }, 1000);
+    setTimeout(function(){userWordObj.focus();}, 100);
 });
 $("#userWord").keydown(function(event) {
     if (event.keyCode === 13) {

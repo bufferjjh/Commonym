@@ -6,6 +6,10 @@ if("Commonym:Username" in localStorage) {
 document.getElementById("yourName").innerHTML = username;
 document.getElementById("usernameDisplay").innerHTML=username;
 
+emojis = ["apple","coconut","lemon","onion","orange","pineapple","strawberry","watermelon"];
+document.getElementById("YouProfilePicture").src="/assets/images/emojis/" + emojis[Math.floor(Math.random() * emojis.length)] + ".png";
+document.getElementById("OpponentProfilePicture").src="/assets/images/emojis/" + emojis[Math.floor(Math.random() * emojis.length)] + ".png";
+
 //check for private game code
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -47,12 +51,16 @@ let startTime = 0;
 let yourWords = [];
 let yourTimes = [];
 let gameOver = false;
+
+const youInput = document.getElementById("youInput");
+
 socket.on('successfulPairing', (opponent) => {
     const myTimeout = setTimeout(() => {
         document.getElementById("opponentName").innerHTML = opponent.username;
         $('#countDownBackground').fadeOut(function() {
             document.getElementById("gameDiv").style.display="";
             countdown();
+            setTimeout(function(){youInput.focus();}, 100);
         });
     }, 1000);
 });
@@ -89,7 +97,6 @@ for (let i of alpha) {
     document.getElementById("usedLettersOpponent").appendChild(letter);
 }
 
-const youInput = document.getElementById("youInput");
 youInput.focus();
 youInput.oninput = () => {
     youInput.value = youInput.value.toUpperCase();
@@ -228,12 +235,12 @@ socket.on('Countdown:LostFirstWord', (word) => {
 
 function markOffLetters(word) {
     for (let i of word) {
-        document.getElementById("you" + i).setAttribute("class", "turnedOffLetter");
+        document.getElementById("you" + i).setAttribute("class", "turnedOffLetterYou");
     }
 }
 function markOffLettersOpponent(word) { 
     for (let i of word) {
-        document.getElementById("opponent" + i).setAttribute("class", "turnedOffLetter");
+        document.getElementById("opponent" + i).setAttribute("class", "turnedOffLetterOpponent");
     }
 }
 let timeLimit = 6;

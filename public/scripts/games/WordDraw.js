@@ -6,6 +6,11 @@ if("Commonym:Username" in localStorage) {
     username = localStorage.getItem("Commonym:Username");
 }
 
+//set pfp
+emojis = ["apple","coconut","lemon","onion","orange","pineapple","strawberry","watermelon"];
+document.getElementById("youPic").src="/assets/images/emojis/" + emojis[Math.floor(Math.random() * emojis.length)] + ".png";
+document.getElementById("opponentPic").src="/assets/images/emojis/" + emojis[Math.floor(Math.random() * emojis.length)] + ".png";
+
 //check for private game code
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -75,6 +80,13 @@ function pulsate(obj) {
     obj.classList.add('pulse');
 }
 
+document.addEventListener("click", () => {
+    youInput.focus();
+});
+document.addEventListener("keypress", () => {
+    youInput.focus();
+});
+
 socket.on("WordDraw:SuccessfulPairing", (opponentUsername) => {
     startTime = new Date();
     startTime = startTime.getTime();
@@ -85,6 +97,7 @@ socket.on("WordDraw:SuccessfulPairing", (opponentUsername) => {
             setTimeout(() => {
                 countdown();
             }, 1000);
+            setTimeout(function(){youInput.focus();}, 100);
         });
     }, 500);
 });

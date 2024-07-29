@@ -235,8 +235,8 @@ body {
   align-items: center;
   color: white;
   font-weight: bold;
-  background-color:#90EE90;
-  box-shadow: 0px 0px 10px#90EE90;
+  background-color:gray;
+  box-shadow: none;
 }
 .useLetterOpponent {
   width: 30px;
@@ -247,10 +247,11 @@ body {
   align-items: center;
   color: white;
   font-weight: bold;
-  background-color:#FF7276;
-  box-shadow: 0px 0px 10px #FF7276;
+  background-color:gray;
+  box-shadow: none;
 }
-.turnedOffLetter {
+
+.turnedOffLetterYou {
   width: 30px;
   height: 30px;
   border-radius: 5px;
@@ -259,8 +260,20 @@ body {
   align-items: center;
   color: white;
   font-weight: bold;
-  background-color:gray;
-  box-shadow: none;
+  background-color:#90EE90;
+  box-shadow: 0px 0px 10px#90EE90;
+}
+.turnedOffLetterOpponent {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color:#FF7276;
+  box-shadow: 0px 0px 10px #FF7276;
 }
 @media only screen and (max-width: 950px) {
   .usedLetters {

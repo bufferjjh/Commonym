@@ -70,7 +70,7 @@
             <img src="/assets/images/RapidRecall.PNG" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">Rapid Recall <span class="badge text-bg-dark">Single</span></h5>
-            <p class="card-text">How fast can you recall your words? You will have to quickly come up with words that either contain a substring, include some letters, or can be arranged out of some collection of letters. Beware of the timer!</p>
+            <p class="card-text">How fast can you recall words? Quickly think of words that fit the requirements and get extra lives for special words. Note that words must be three letters or longer <b>for all games</b>. You start with 3 lives. Beware of the timer!</p>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
               <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/RapidRecall'">Play</button>
               <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#RapidRecallModal">Demo</button>
@@ -80,7 +80,15 @@
         <div class="card" style="width: 18rem; margin: 20px;">
             <img src="/assets/images/Countdown.PNG" class="card-img-top" alt="...">
             <div class="card-body">
-            <h5 class="card-title">Countdown</h5>
+            <h5 class="card-title">
+              Countdown 
+              <span class="badge bg-warning text-dark">
+                1 vs 1
+                <div class="spinner-grow text-success" role="status" style="height:13px; width:13px;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </span>
+            </h5>
             <p class="card-text">The first player to use all 26 letters of the alphabet wins. <a style="text-decoration: underline">Your word needs to start with the last letter of your opponent's word.</a> A deciding prompt is given at the start of the round to determine who goes first, which is a big advantage.</p>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
               <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/Countdown'">Play</button>
@@ -91,7 +99,15 @@
         <div class="card" style="width: 18rem; margin: 20px;">
             <img src="/assets/images/WordDraw.PNG" class="card-img-top" alt="...">
             <div class="card-body">
-            <h5 class="card-title">Word Draw</h5>
+            <h5 class="card-title">
+              Word Draw
+              <span class="badge bg-warning text-dark">
+                1 vs 1
+                <div class="spinner-grow text-success" role="status" style="height:13px; width:13px;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </span>
+            </h5>
             <p class="card-text">Who can come up with words faster? You'll be asked some prompts throughout the round. The player that first enters a word satisfying the prompt will get the point. First to ten points wins. Word length doesn't matter.</p>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
               <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/WordDraw'">Play</button>
