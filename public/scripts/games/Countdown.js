@@ -233,14 +233,56 @@ socket.on('Countdown:LostFirstWord', (word) => {
     startTime = d.getTime();
 });
 
+let usedLettersYou = []
+let usedLettersOpponent = []
+let usedLettersYouCnt = 0
+let usedLettersOpponentCnt = 0
+
+for (let i = 0; i < 26; i++) {
+    usedLettersYou.push(false);
+    usedLettersOpponent.push(false);
+}
+
 function markOffLetters(word) {
     for (let i of word) {
         document.getElementById("you" + i).setAttribute("class", "turnedOffLetterYou");
     }
+    for (let i = 0; i < word.length; i++) {
+        if(!usedLettersYou[word.charCodeAt(i) - 65]) {
+            usedLettersYouCnt++;
+            usedLettersYou[word.charCodeAt(i) - 65] = true;
+        }
+    }
+    if(usedLettersYouCnt == 26) {
+        setTimeout(function(){
+            if(!gameOver) {
+                gameOver = true;
+                clearGame();
+                gameOverScreen(true);
+                console.log("Secondary System Engaged for win");
+            }
+        }, 300);
+    }
 }
-function markOffLettersOpponent(word) { 
+function markOffLettersOpponent(word) {
     for (let i of word) {
         document.getElementById("opponent" + i).setAttribute("class", "turnedOffLetterOpponent");
+    }
+    for (let i = 0; i < word.length; i++) {
+        if(!usedLettersOpponent[word.charCodeAt(i) - 65]) {
+            usedLettersOpponentCnt++;
+            usedLettersOpponent[word.charCodeAt(i) - 65] = true;
+        }
+    }
+    if(usedLettersOpponentCnt == 26) {
+        setTimeout(function(){
+            if(!gameOver) {
+                gameOver = true;
+                clearGame();
+                gameOverScreen(false);
+                console.log("Secondary System Engaged for loss");
+            }
+        }, 300);
     }
 }
 let timeLimit = 6;
