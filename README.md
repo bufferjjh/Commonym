@@ -33,4 +33,6 @@ WordDraw is a 1🆚1 multiplayer game mode🎮 where the first player to get to 
 
 https://github.com/user-attachments/assets/6cc76684-3a51-4d71-8cca-a16f6f57ee10
 
+<h2>About</h2>
+<p>Built by Jerry He (hejerryja@gmail.com)</p>
 
